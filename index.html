@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gita for Kids | Class Portal</title>
+  <meta name="description" content="Bhagavad Gita class portal with resources, daily reviews, and shloka chanting.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Noto+Serif+Devanagari:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <header class="top-nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <span class="logo-dot"></span>
+        <div>
+          <p class="brand-title">Gita for Kids</p>
+          <p class="brand-subtitle">Learning with joy and values</p>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#resources">Resources</a>
+        <a href="#reviews">Daily Reviews</a>
+        <a href="#chanting">Shloka Chanting</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero hero-fullscreen">
+      <div class="container">
+      <div class="hero-card">
+        <h1>Gita for Kids</h1>
+        <blockquote class="gita-quote" lang="sa">
+          कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।<br>
+          मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥
+        </blockquote>
+        <p class="quote-ref">Bhagavad Gita 2.47</p>
+        <p class="quote-translation">
+          You have a right to perform your prescribed duties, but never to the fruits of your actions.
+          Never consider yourself the cause of the results, and never be attached to inaction.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#resources">Open Resources</a>
+          <a class="btn btn-light" href="#reviews">Open Daily Reviews</a>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section id="resources" class="section container">
+      <div class="section-head">
+        <h2>Class Resources</h2>
+        <a id="driveFolderBtn" class="small-link" target="_blank" rel="noopener noreferrer">Open Drive Folder</a>
+      </div>
+      <p class="section-note">Separate sections for PDFs and YouTube links.</p>
+      <div class="resource-group">
+        <h3 class="resource-group-title">PDF Resources</h3>
+        <div id="pdfResourcesGrid" class="card-grid"></div>
+      </div>
+      <div class="resource-group">
+        <h3 class="resource-group-title">YouTube Links</h3>
+        <div id="youtubeResourcesGrid" class="card-grid"></div>
+      </div>
+    </section>
+
+    <section id="reviews" class="section container">
+      <div class="section-head">
+        <h2>Daily Class Reviews</h2>
+      </div>
+      <p class="section-note">Click each day to view class review points, stories discussed, and practice homework.</p>
+      <div id="reviewsList" class="timeline"></div>
+    </section>
+
+    <section id="chanting" class="section container">
+      <div class="section-head">
+        <h2>Shloka Chanting</h2>
+      </div>
+      <p class="section-note">Listen to Swami Chinmayananda audio and read the shloka above each audio player.</p>
+      <div id="chantingList" class="card-grid"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>Made with care for Bhagavad Gita students.</p>
+      <p>Maintain content in <code>script.js</code> and Google Drive.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
