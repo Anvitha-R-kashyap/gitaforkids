@@ -7,13 +7,13 @@ const portalData = {
     {
       type: "PDF",
       title: "Gita-Dhyanam",
-      link: "https://drive.google.com/file/d/1nsOFKEJM2n3ZTbLjvuSEYNPvRxWANey-/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1nsOFKEJM2n3ZTbLjvuSEYNPvRxWANey-/view?usp=sharing"
     },
 
     {
       type: "PDF",
       title: "Chapter 1 - Arjuna Vishada Yoga - Arjuna’s Despair",
-      link: "https://drive.google.com/file/d/12GBmzs7RUBbMG4QTkabw0kHgRDNeGWqq/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/12GBmzs7RUBbMG4QTkabw0kHgRDNeGWqq/view?usp=sharing"
     },
 
     {
