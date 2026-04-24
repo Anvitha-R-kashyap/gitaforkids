@@ -1,6 +1,6 @@
 const portalData = {
   // Replace these two links first
-  driveFolderUrl: "https://drive.google.com/drive/folders/1nLUU8O5mL-kbFqHX0g0RRmrkLAd4qWQq?usp=drive_link",
+  driveFolderUrl: "https://drive.google.com/drive/folders/1nLUU8O5mL-kbFqHX0g0RRmrkLAd4qWQq?usp=sharing",
 
   // Add resources (PDF, YouTube, notes)
   resources: [
