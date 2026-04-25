@@ -1,19 +1,19 @@
 const portalData = {
   // Replace these two links first
-  driveFolderUrl: "https://drive.google.com/drive/folders/1nLUU8O5mL-kbFqHX0g0RRmrkLAd4qWQq?usp=sharing",
+  driveFolderUrl: "https://drive.google.com/drive/folders/1nLUU8O5mL-kbFqHX0g0RRmrkLAd4qWQq?usp=drive_link",
 
   // Add resources (PDF, YouTube, notes)
   resources: [
     {
       type: "PDF",
       title: "Gita-Dhyanam",
-      link: "https://drive.google.com/file/d/1nsOFKEJM2n3ZTbLjvuSEYNPvRxWANey-/view?usp=sharing"
+      link: "https://drive.google.com/file/d/1nsOFKEJM2n3ZTbLjvuSEYNPvRxWANey-/view?usp=drive_link"
     },
 
     {
       type: "PDF",
       title: "Chapter 1 - Arjuna Vishada Yoga - Arjuna’s Despair",
-      link: "https://drive.google.com/file/d/12GBmzs7RUBbMG4QTkabw0kHgRDNeGWqq/view?usp=sharing"
+      link: "https://drive.google.com/file/d/12GBmzs7RUBbMG4QTkabw0kHgRDNeGWqq/view?usp=drive_link"
     },
 
     {
@@ -84,7 +84,7 @@ const portalData = {
 
 const pdfResourcesGrid = document.getElementById("pdfResourcesGrid");
 const youtubeResourcesGrid = document.getElementById("youtubeResourcesGrid");
-const reviewsList = document.getElementById("reviewsList");
+const ongoingBatchesList = document.getElementById("ongoingBatchesList");
 const chantingList = document.getElementById("chantingList");
 
 function createResourceCard(item) {
@@ -129,7 +129,46 @@ function renderResources() {
 }
 
 function renderReviews() {
-  reviewsList.innerHTML = "";
+  ongoingBatchesList.innerHTML = "";
+
+  const batchesAccordion = document.createElement("article");
+  batchesAccordion.className = "accordion-item";
+  batchesAccordion.innerHTML = `
+    <button class="accordion-btn" type="button" aria-expanded="false">
+      <div>
+        <h3 class="accordion-title">Ongoing Batches</h3>
+        <p class="accordion-sub">Open to see active class batches.</p>
+      </div>
+      <span class="accordion-icon">+</span>
+    </button>
+    <div class="accordion-content">
+      <div class="accordion-content-inner">
+        <div id="batch12Container"></div>
+      </div>
+    </div>
+  `;
+  ongoingBatchesList.appendChild(batchesAccordion);
+
+  const batch12Container = document.getElementById("batch12Container");
+  const batch12Accordion = document.createElement("article");
+  batch12Accordion.className = "accordion-item";
+  batch12Accordion.innerHTML = `
+    <button class="accordion-btn" type="button" aria-expanded="false">
+      <div>
+        <h3 class="accordion-title">Batch-12</h3>
+        <p class="accordion-sub">Click to view daily class reviews.</p>
+      </div>
+      <span class="accordion-icon">+</span>
+    </button>
+    <div class="accordion-content">
+      <div class="accordion-content-inner">
+        <div id="reviewsList"></div>
+      </div>
+    </div>
+  `;
+  batch12Container.appendChild(batch12Accordion);
+
+  const reviewsList = document.getElementById("reviewsList");
   portalData.dailyReviews.forEach((review, index) => {
     const dayLabel = review.dayNumber ? `Day ${review.dayNumber}` : `Day ${index + 1}`;
     const mainPointsHtml = (review.mainPoints || [])
@@ -186,19 +225,23 @@ function renderChanting() {
 
 function setupAccordion() {
   const allAccordions = document.querySelectorAll(".accordion-item");
+  const getDirectChildByClass = (parent, className) =>
+    Array.from(parent.children).find((child) => child.classList.contains(className));
   allAccordions.forEach((accordion) => {
-    const button = accordion.querySelector(".accordion-btn");
-    const content = accordion.querySelector(".accordion-content");
+    const button = getDirectChildByClass(accordion, "accordion-btn");
+    const content = getDirectChildByClass(accordion, "accordion-content");
+    if (!button || !content) {
+      return;
+    }
+    content.style.maxHeight = "";
     button.addEventListener("click", () => {
       const isOpen = accordion.classList.contains("open");
       if (isOpen) {
         accordion.classList.remove("open");
         button.setAttribute("aria-expanded", "false");
-        content.style.maxHeight = "0px";
       } else {
         accordion.classList.add("open");
         button.setAttribute("aria-expanded", "true");
-        content.style.maxHeight = `${content.scrollHeight}px`;
       }
     });
   });
